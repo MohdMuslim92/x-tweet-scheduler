@@ -1,2 +1,2 @@
-tweepy
-schedule
+tweepy==4.14.0
+requests
