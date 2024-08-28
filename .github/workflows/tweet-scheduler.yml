@@ -1,0 +1,33 @@
+name: Schedule Tweets
+
+on:
+  schedule:
+    - cron: '0 9,13,17 * * *'  # This schedules the workflow to run at 09:00, 13:00, and 17:00 UTC daily
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  tweet:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3  # Checkout the repository so the action can access the code
+
+    - name: Set up Python
+      uses: actions/setup-python@v4  # Set up the Python environment
+      with:
+        python-version: '3.10.6'  # Use the Python version that matches the project
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt  # Install the required Python packages
+
+    - name: Run tweet script
+      run: |
+        python main.py  # Execute tweet posting script
+      env:
+        API_KEY: ${{ secrets.API_KEY }}  # Set up environment variables using GitHub Secrets
+        API_SECRET_KEY: ${{ secrets.API_SECRET_KEY }}
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+        BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
