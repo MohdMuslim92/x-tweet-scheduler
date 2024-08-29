@@ -2,7 +2,7 @@ name: Schedule Tweets
 
 on:
   schedule:
-    - cron: '0 9,13,17 * * *'  # This schedules the workflow to run at 09:00, 13:00, and 17:00 UTC daily
+    - cron: '0 9 * * *'  # This schedules the workflow to run once daily at 09:00 UTC
   workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
