@@ -14,12 +14,13 @@ To use this script, you need to have the required API keys and tokens, and a lis
 in a config file.
 """
 
-import tweepy  # Import the Tweepy library for Twitter API
-import time  # Import the time module for adding a delay between tweets
 import logging  # Import the logging module for logging tweet activity and errors
+import time  # Import the time module for adding a delay between tweets
+import tweepy  # Import the Tweepy library for Twitter API
+from tweets import TWEETS  # Import the list of tweets from tweets.py
 
-# Import the config module for reading the Twitter API credentials and the list of tweets
-from config import ACCESS_TOKEN, ACCESS_TOKEN_SECRET, API_KEY, API_SECRET_KEY, BEARER_TOKEN, TWEETS
+# Import the config module for reading the Twitter API credentials
+from config import ACCESS_TOKEN, ACCESS_TOKEN_SECRET, API_KEY, API_SECRET_KEY, BEARER_TOKEN
 
 # Configure logging to write log messages to 'tweet_log.txt'
 logging.basicConfig(
@@ -44,7 +45,7 @@ client = tweepy.Client(
     consumer_secret=API_SECRET_KEY  # Consumer API secret key
 )
 
-def tweet(client, message):
+def tweet(tweepy_client, message):
     """
     Post a tweet using the provided client object.
     
@@ -55,24 +56,33 @@ def tweet(client, message):
     Logs the outcome of each attempt to post a tweet, including any errors encountered.
     """
     try:
-        response = client.create_tweet(text=message)  # Post the tweet using Twitter API v2
-        logging.info(f"Tweeted: {message}")  # Log the tweet content
-        logging.info(f"Response: {response}")  # Log the API response for the tweet
+        # Check if the client object has the 'create_tweet' method
+        if not hasattr(tweepy_client, 'create_tweet'):
+            raise AttributeError("The client object does not have the 'create_tweet' method.")
+        response = tweepy_client.create_tweet(text=message)  # Post the tweet using Twitter API v2
+        logging.info("Tweeted: %s", message)  # Log the tweet content using lazy formatting
+        # Log the API response for the tweet using lazy formatting
+        logging.info("Response: %s", response)
     except tweepy.TweepyException as error:
-        logging.error(f"Tweepy error: {error}")  # Log any errors from the Tweepy library
+        # Log any errors from the Tweepy library using lazy formatting
+        logging.error("Tweepy error: %s", error)
     except Exception as error:
-        logging.error(f"Unexpected error: {error}")  # Log any unexpected errors
+        # Don't catch AttributeError here; let it propagate for the test
+        if not isinstance(error, AttributeError):
+            # Log any unexpected errors using lazy formatting
+            logging.error("Unexpected error: %s", error)
+        raise  # Reraise the exception
 
-def post_all_tweets(client):
+def post_all_tweets(tweepy_client):
     """
     Post all tweets from the predefined list TWEETS.
 
     Iterates through the list of tweets and posts each one using the `tweet` function.
     Includes a delay between each tweet to avoid hitting Twitter's rate limits.
     """
-    logging.info(f"Posting tweets...")  # Log the start of the posting process
+    logging.info("Posting tweets...")  # Log the start of the posting process
     for tweet_message in TWEETS:
-        tweet(client, tweet_message)  # Post each tweet
+        tweet(tweepy_client, tweet_message)  # Post each tweet
         time.sleep(10)  # Wait 10 seconds between tweets to avoid rate limiting
 
 if __name__ == "__main__":
