@@ -7,6 +7,7 @@ X Tweet Scheduler is a Python-based tool that automates the process of posting t
 - **Overview**: Describes the purpose of the repository and the main components.
 - **Setup**: Provides detailed steps for cloning the repository, installing dependencies, configuring credentials, creating necessary files, and setting up GitHub Actions.
 - **Workflow**: Explains how the tweet posting and scheduling works.
+- **Testing**: Provides instructions for running unit tests to ensure everything functions as expected.
 - **Customization**: Instructions for adjusting the schedule and updating the tweet content.
 - **Contributing**: Invites contributions and provides contact information.
 - **License**: Indicates the project’s licensing terms.
@@ -77,6 +78,26 @@ This will post tweets from the list defined in tweets.py and log the results to 
 
 * **Tweet Posting:** The main.py script authenticates with the Twitter API and posts tweets from the predefined list. It logs the outcome of each tweet to tweet_log.txt.
 * **GitHub Actions:** Automatically schedules and posts tweets based on the defined schedule in .github/workflows/tweet-scheduler.yml.
+
+## Testing
+Unit tests are included to ensure the functionality of the main.py script:
+
+1. **Run Unit Tests:**
+
+To run the tests and ensure everything works correctly, use the following command:
+
+```
+python -m unittest test_main.py
+```
+This will execute all the tests in test_main.py and report any issues.
+
+2. **Code Quality Checks:**
+
+The project uses pylint to enforce coding standards and style guidelines. To check the code quality, run:
+
+```
+pylint config.py main.py test_main.py
+```
 
 ## Customization
 
