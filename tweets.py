@@ -9,8 +9,6 @@ TWEETS = [
     
     "Start mining cryptocurrency easily with Bee Network! 📱 No battery drain or expensive hardware needed. Just tap daily to earn Bee coins! 🐝 Join now with my referral code conan421: j.bee.com/s?a=conan421\n\nhttps://x.com/Beeuser1992/status/1828612299877175610\n#Crypto #bee",
     
-    "Join Celia Exchange, a secure and user-friendly platform for trading digital assets! Trade, earn staking rewards, and mine CLT daily. 💰 Use my referral code 51GUXFLCLT to start: https://t.co/pcM8lExjSR\n\nhttps://x.com/Beeuser1992/status/1828612716832932283\n#Crypto #CELIA",
-    
     "Join Omega Network, a decentralized social platform prioritizing privacy and data security! 🚀 Trade OMN and access exclusive features. Use my referral code conan421 to start: https://t.co/bBoqVYiZil\n\nhttps://x.com/Beeuser1992/status/1828613105221562502\n#Crypto #OMEGA",
     
     "Join Pi Network to mine Pi coins on your smartphone with Proof of Access! 🌍 Founded by Stanford grads, it’s all about inclusivity and community. Use my referral code conan421 to start: https://t.co/i5Ecu2Uhzj\n\nhttps://x.com/Beeuser1992/status/1828613478300418145\n#Crypto #PiNetwork2024",
