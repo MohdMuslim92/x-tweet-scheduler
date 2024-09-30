@@ -17,7 +17,5 @@ TWEETS = [
     
     "Join Blum on Telegram to earn rewards with games like Blum Drop and daily incentives! 🚀 Start now: https://t.me/blum/app?startapp=ref_jnzjITD2Ux\n\nhttps://x.com/Beeuser1992/status/1828614593809133813\n#Crypto #Blum",
     
-    "Join X Empire's airdrop campaign on Telegram and earn free tokens! Complete tasks to get involved early in this innovative platform for NFTs, DeFi, and gaming. 🚀\n\nStart here: https://t.me/empirebot/game?startapp=hero6490366132\n\nhttps://x.com/Beeuser1992/status/1828615003907252730\n#Crypto #XEmpire #Airdrop #ElonMusk",
-    
     "Discover YesCoin on the Telegram Open Network (TON)! Earn crypto seamlessly, explore an NFT marketplace, and enjoy innovative rewards—all within Telegram. 🚀\n\nGet started: https://t.me/theYescoin_bot/Yescoin?startapp=zO1Sfy\n\nhttps://x.com/Beeuser1992/status/1828615349886939154\n#Crypto #YesCoin"
 ]
